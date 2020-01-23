@@ -12,6 +12,7 @@ vim本着按照编辑器需求配置完成一下功能：
 
 ## Mac
 基于有效的应用Mac笔记
+
 ###1. 保持连接
 
 情景一：如果您有多台服务器，不想在每台服务器上设置，如下操作：
@@ -27,6 +28,7 @@ ServerAliveInterval=60
 ClientAliveInterval 60
 情景三：如果您只想让当前的 ssh 保持连接，可以使用以下的命令：
 ssh -o ServerAliveInterval=60 user@sshserver
+
 
 ###2. 克隆会话
 因为每次需要先登录跳转机，再登录开发机，输入两次密码，过于繁琐，所以上网找了iterm下克隆会话功能。
