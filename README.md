@@ -11,7 +11,9 @@ vim本着按照编辑器需求配置完成一下功能：
 改变了主题，提示窗口显示 『用户名@主机名：当前路径』，方面服务器上使用
 
 安装语法高亮插件
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
+
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 ## Mac
@@ -21,18 +23,27 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 
 情景一：如果您有多台服务器，不想在每台服务器上设置，如下操作：
 1. 运行命令：
+
 cd ~/.ssh/
+
 2. 假如运行命令ls，没有config,新建config
+
 vim config
+
 3. 在config在里面输入
+
 ServerAliveInterval=60
+
 4. 保存文件
+
 在链接linux服务器，就不会有断线的问题了。
 
 情景二：如果您有多个人管理服务器，不想在每个客户端进行设置，只需在服务器的 /etc/ssh/sshd_config 中添加如下的配置：
+
 ClientAliveInterval 60
 
 情景三：如果您只想让当前的 ssh 保持连接，可以使用以下的命令：
+
 ssh -o ServerAliveInterval=60 user@sshserver
 
 
@@ -41,15 +52,20 @@ ssh -o ServerAliveInterval=60 user@sshserver
 因为每次需要先登录跳转机，再登录开发机，输入两次密码，过于繁琐，所以上网找了iterm下克隆会话功能。
 
 1. Prefenrences -> default -> General -> Reuse previous session`s directory
+
 ./ssh/config
+
 ControlMaster auto
+
 ControlPath ~/.ssh/master-%r@%h:%p
 
 2. 配置Mac所在机器的ssh
 vim ~/.ssh/config
 输入下面三行
 host *
+
 ControlMaster auto
+
 ControlPath ~/.ssh/master-%r@%h:%p
 
 3. 重新打开终端，第一次，你还是需要输入密码，第二次ssh登录同一台机器，你就不用输入密码了，跟secureCRT一样的clone session的方式一样。 
