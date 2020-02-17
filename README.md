@@ -6,6 +6,9 @@ vim本着按照编辑器需求配置完成一下功能：
 2. 基于Ctags做代码常规转跳
 3. 基于当前文档和buffer进行自动补全（项目较大时基于ctag的补全容易卡顿）
 4. 查看文件树
+### 安装插件管理器
+ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 ## zshrc
 改变了主题，提示窗口显示 『用户名@主机名：当前路径』，方面服务器上使用
@@ -53,11 +56,7 @@ ssh -o ServerAliveInterval=60 user@sshserver
 
 1. Prefenrences -> default -> General -> Reuse previous session`s directory
 
-./ssh/config
 
-ControlMaster auto
-
-ControlPath ~/.ssh/master-%r@%h:%p
 
 2. 配置Mac所在机器的ssh
 vim ~/.ssh/config
