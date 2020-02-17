@@ -8,6 +8,15 @@ vim本着按照编辑器需求配置完成一下功能：
 4. 查看文件树
 ### 安装插件管理器
  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ 
+### 配色
+cd 
+
+cd .vim
+
+mkdir colors
+
+之后建立配色文件，参考：https://github.com/tomasr/molokai
 
 
 ## zshrc
