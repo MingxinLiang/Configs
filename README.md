@@ -10,6 +10,10 @@ vim本着按照编辑器需求配置完成一下功能：
 ## zshrc
 改变了主题，提示窗口显示 『用户名@主机名：当前路径』，方面服务器上使用
 
+安装语法高亮插件
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
 ## Mac
 基于有效的应用Mac笔记
 
