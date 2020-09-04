@@ -126,7 +126,7 @@ vnoremap $q <esc>`>a'<esc>`<i'<esc>
 vnoremap $e <esc>`>a"<esc>`<i"<esc>
 " 括号自动生成
 
-" F5 自动格式化
+" F5 自动格式化 依赖astyle
 " map <F5> :call FormartSrc()<CR><CR>
 " 
 " "定义FormartSrc()
@@ -216,11 +216,6 @@ Plug 'tpope/vim-surround'
 
 " 高亮括号
 Plug 'kien/rainbow_parentheses.vim'
-
-" 超级tab
-" 补全只使用 当前文件 buffer 其他窗口 include文件 
-Plug 'ervandew/supertab'
-set cpt=.,b,w,i 
 
 " taglist
 Plug 'vim-scripts/taglist.vim'
@@ -331,8 +326,13 @@ nnoremap <F5> :Buffers<CR>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+"" 代码块补全
+
+" 超级tab
+" 补全只使用 当前文件 buffer 其他窗口 include文件 
+Plug 'ervandew/supertab'
+set cpt=.,b,w,i 
+
 call plug#end()
 
-"" TODO:
-"" 代码块补全
 

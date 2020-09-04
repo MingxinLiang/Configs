@@ -275,5 +275,5 @@ export PATH="/usr/local/opt/ncurses/bin:$PATH"
 alias irelay="ssh liangmingxin@relay.baidu-int.com"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /Users/liangmingxin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/liangmingxin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/liangmingxin/Configs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/liangmingxin/Configs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
