@@ -20,6 +20,9 @@ mkdir colors
 
 
 ## zshrc
+安装
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 改变了主题，提示窗口显示 『用户名@主机名：当前路径』，方面服务器上使用
 
 安装语法高亮插件
@@ -63,7 +66,7 @@ ssh -o ServerAliveInterval=60 user@sshserver
 
 因为每次需要先登录跳转机，再登录开发机，输入两次密码，过于繁琐，所以上网找了iterm下克隆会话功能。
 
-1. Prefenrences -> default -> General -> Reuse previous session`s directory
+1. Prefenrences -> Profiles -> General -> Reuse previous session`s directory
 
 
 
