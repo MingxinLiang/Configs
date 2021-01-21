@@ -81,3 +81,9 @@ ControlPath ~/.ssh/master-%r@%h:%p
 
 3. 重新打开终端，第一次，你还是需要输入密码，第二次ssh登录同一台机器，你就不用输入密码了，跟secureCRT一样的clone session的方式一样。 
 在~/.ssh/目录下发现master-*的sock文件。它记录了你目前登录到的机器，这样的话，你登录同样的机器就会重用同一个链接了
+
+## VScode
+1. VsCode下使用vim，光标不能连续移动的问题：
+sudo defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+code
+
