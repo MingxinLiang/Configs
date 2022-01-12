@@ -6,7 +6,7 @@ set expandtab
 " 处理换行和tab
 
 set encoding=utf-8
-set fileencodings=ucs-bom,gb18030,gbk,utf-8,cp936,gb2312
+set fileencodings=utf-8,gbk,ucs-bom,gb18030,utf-8,cp936,gb2312
 set fileencoding=utf-8
 set termencoding=utf-8
 "设置编码格式
