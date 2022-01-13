@@ -8,7 +8,7 @@ alias complete="compctl"
 
 # get bash set
 source ~/.bashrc
-# source ~/.bash_profile
+source ~/.bash_profile
 
 # Themes
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -280,3 +280,6 @@ alias irelay="ssh liangmingxin@relay.baidu-int.com"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /Users/liangmingxin/WorkPlace/Configs/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/liangmingxin/WorkPlace/Configs/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# active conda
+conda activate 
