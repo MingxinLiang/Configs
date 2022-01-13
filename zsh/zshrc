@@ -103,7 +103,7 @@ export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
 export SAVEHIST=10000
 #历史纪录文件
-export HISTFILE=~/.zhistory
+#export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
@@ -120,7 +120,7 @@ setopt PUSHD_IGNORE_DUPS
 cd() {
     builtin cd "$@"                             # do actual cd
     fc -W                                       # write current history  file
-    local HISTDIR="$HOME/.zsh_history"      # use nested folders for history
+    local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
     if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
         mkdir -p "$HISTDIR"
     fi
@@ -131,8 +131,11 @@ cd() {
     HISTSIZE=$ohistsize                     # Prepare for new dir's history
     fc -R                                       #read from current histfile
 }
-mkdir -p $HOME/.zsh_history
-export HISTFILE="$HOME/.zsh_history/zhistory"
+
+if [ ! -d "$HOME/.zsh_history" ]; then
+    mkdir -p $HOME/.zsh_history
+fi
+export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
 
 function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
 function convhistory {
