@@ -1,0 +1,21 @@
+show_channel_urls: True
+allow_other_channels: True
+
+channels:
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/r
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/pro
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/msys2
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/mro
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/free
+  - https://anaconda.mirrors.sjtug.sjtu.edu.cn/pkgs/main
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - defaults
+
+#proxy_servers:
+#  http: socks5://127.0.0.1:1080
+#  https: socks5://127.0.0.1:1080
+#ssl_verify: false

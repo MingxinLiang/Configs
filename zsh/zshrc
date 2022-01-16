@@ -282,4 +282,8 @@ source /Users/liangmingxin/WorkPlace/Configs/zsh/zsh-syntax-highlighting/zsh-syn
 source /Users/liangmingxin/WorkPlace/Configs/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # active conda
-conda activate 
+#conda activate 
+
+# login servers
+alias iserver_bj="ssh lighthouse@82.157.54.109"
+alias iserver_xjp="ssh lighthouse@43.156.54.134"
