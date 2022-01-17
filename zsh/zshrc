@@ -133,7 +133,7 @@ cd() {
 }
 
 if [ ! -d "$HOME/.zsh_history" ]; then
-    mkdir -p $HOME/.zsh_history
+    mkdir -p $HOME/.zsh_history$PWD
 fi
 export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
 
@@ -145,7 +145,7 @@ function convhistory {
 }
 #使用 histall 命令查看全部历史纪录
 function histall { convhistory =(allhistory) |
-    sed '/^.\{20\} *cd/i\\' }
+    sed '/^.{20} *cd/i\' }
 #使用 hist 查看当前目录历史纪录
 function hist { convhistory $HISTFILE }
 
