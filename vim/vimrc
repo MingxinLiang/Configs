@@ -155,7 +155,7 @@ vnoremap $e <esc>`>a"<esc>`<i"<esc>
 "结束定义FormartSrc
 "
 "F6 自动运行
-map <F6> :call CompileRunGcc()<CR>
+map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
@@ -322,7 +322,7 @@ let g:tagbar_type_cpp = {
 " fzf 文件搜索，需要安装fzf比ctrlp更好使用
 " Go语言编写，速度更快
 nnoremap <F4> :FZF<CR>
-nnoremap <F5> :Buffers<CR>
+nnoremap <F6> :Buffers<CR>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
