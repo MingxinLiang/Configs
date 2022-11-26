@@ -1,6 +1,7 @@
 # Configs
 个人的配置文件
 链接到个人配置目录下
+
 ln -s `pwd` ./~
 
 ## zshrc
@@ -10,24 +11,22 @@ ln -s `pwd` ./~
 ubuntu: sudo apt-get install zsh
 centos: sudo yum install -y zsh
 
-
 ##### 安装 oh-my-zsh
 sh zsh/zsh_install.sh
 > 国内镜像：sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
 
-
 ###### 配置
 ln -s ~/Configs/zsh/zshrc ~/.zshrc
+
 ln -s ~/Configs/zsh/p10k.zsh ~/.p10k.zsh
 
+- 安装语法高亮插件参考:
 
-安装语法高亮插件参考
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
 
+- 补全插件参考：
 
-补全插件参考：
 git clone https://github.com/zsh-users/zsh-completions.git
-
 
 ## Vim
 vim本着按照编辑器需求配置完成一下功能：
@@ -47,13 +46,13 @@ mkdir colors
 
 之后建立配色文件，参考：https://github.com/tomasr/molokai
 
-
 ## Mac
 基于有效的应用Mac笔记
 
 - 保持连接
 
 情景一：如果您有多台服务器，不想在每台服务器上设置，如下操作：
+
 1. 运行命令：
 
 cd ~/.ssh/
@@ -70,7 +69,9 @@ ServerAliveInterval=60
 
 在链接linux服务器，就不会有断线的问题了。
 
-情景二：如果您有多个人管理服务器，不想在每个客户端进行设置，只需在服务器的 /etc/ssh/sshd_config 中添加如下的配置：
+情景二：如果您有多个人管理服务器，不想在每个客户端进行设置:
+
+只需在服务器的 /etc/ssh/sshd_config 中添加如下的配置
 
 ClientAliveInterval 60
 
@@ -78,25 +79,24 @@ ClientAliveInterval 60
 
 ssh -o ServerAliveInterval=60 user@sshserver
 
-
 - 克隆会话
 
 因为每次需要先登录跳转机，再登录开发机，输入两次密码，过于繁琐，所以上网找了iterm下克隆会话功能。
 
-
 1. Prefenrences -> Profiles -> General -> Reuse previous session`s directory
 
+2. 配置Mac所在机器的ssh:
 
-2. 配置Mac所在机器的ssh
-vim ~/.ssh/config
-输入下面三行
-host *
-
-ControlMaster auto
-
-ControlPath ~/.ssh/master-%r@%h:%p
-
-
+    vim ~/.ssh/config
+    
+    输入下面三行:
+    
+    host *
+    
+    ControlMaster auto
+    
+    ControlPath ~/.ssh/master-%r@%h:%p
+    
 3. 重新打开终端，第一次，你还是需要输入密码，第二次ssh登录同一台机器，你就不用输入密码了，跟secureCRT一样的clone session的方式一样。 
 在~/.ssh/目录下发现master-*的sock文件。它记录了你目前登录到的机器，这样的话，你登录同样的机器就会重用同一个链接了
 
@@ -104,15 +104,11 @@ ControlPath ~/.ssh/master-%r@%h:%p
 
 1. brew install lrzsz  - 安装lrzsz
 
-
 2. ```cp ~/Configs/iterm2-zmodem/* /usr/local/bin/```
-
 
 3. chmod +x /usr/local/bin/iterm2-*
 
-
 4. iTerm2 -> Profiles -> Default ->Advanced -> Triggers -> edit:
-
 
 ```
 Regular expression: rz waiting to receive.\*\*B0100
