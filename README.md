@@ -83,8 +83,8 @@ ssh -o ServerAliveInterval=60 user@sshserver
 
 因为每次需要先登录跳转机，再登录开发机，输入两次密码，过于繁琐，所以上网找了iterm下克隆会话功能。
 
-1. Prefenrences -> Profiles -> General -> Reuse previous session`s directory
 
+1. Prefenrences -> Profiles -> General -> Reuse previous session`s directory
 
 
 2. 配置Mac所在机器的ssh
@@ -96,8 +96,35 @@ ControlMaster auto
 
 ControlPath ~/.ssh/master-%r@%h:%p
 
+
 3. 重新打开终端，第一次，你还是需要输入密码，第二次ssh登录同一台机器，你就不用输入密码了，跟secureCRT一样的clone session的方式一样。 
 在~/.ssh/目录下发现master-*的sock文件。它记录了你目前登录到的机器，这样的话，你登录同样的机器就会重用同一个链接了
+
+- iterm2 zmodem [lzrsz协议](https://ohse.de/uwe/software/lrzsz.html)
+
+1. brew install lrzsz  - 安装lrzsz
+
+
+2. ```cp ~/Configs/iterm2-zmodem/* /usr/local/bin/```
+
+
+3. chmod +x /usr/local/bin/iterm2-*
+
+
+4. iTerm2 -> Profiles -> Default ->Advanced -> Triggers -> edit:
+
+
+```
+Regular expression: rz waiting to receive.\*\*B0100
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+Instant: checked
+
+Regular expression: \*\*B00000000000000
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+Instant: checked
+```
 
 ## VScode
 1. VsCode下使用vim，光标不能连续移动的问题：

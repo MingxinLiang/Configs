@@ -1,1 +1,0 @@
-/Users/liangmingxin/Configs/zsh/themes/p10k.zsh
