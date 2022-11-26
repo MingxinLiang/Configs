@@ -1,5 +1,34 @@
 # Configs
 个人的配置文件
+链接到个人配置目录下
+ln -s `pwd` ./~
+
+## zshrc
+
+
+##### 安装 zsh
+ubuntu: sudo apt-get install zsh
+centos: sudo yum install -y zsh
+
+
+##### 安装 oh-my-zsh
+sh zsh/zsh_install.sh
+> 国内镜像：sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+
+
+###### 配置
+ln -s ~/Configs/zsh/zshrc ~/.zshrc
+ln -s ~/Configs/zsh/p10k.zsh ~/.p10k.zsh
+
+
+安装语法高亮插件参考
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
+
+
+补全插件参考：
+git clone https://github.com/zsh-users/zsh-completions.git
+
+
 ## Vim
 vim本着按照编辑器需求配置完成一下功能：
 1. 基于fzf模糊搜索文件和buffer
@@ -18,18 +47,6 @@ mkdir colors
 
 之后建立配色文件，参考：https://github.com/tomasr/molokai
 
-
-## zshrc
-安装
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-改变了主题，提示窗口显示 『用户名@主机名：当前路径』，方面服务器上使用
-
-安装语法高亮插件
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
-
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 ## Mac
 基于有效的应用Mac笔记
