@@ -28,6 +28,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 git clone https://github.com/zsh-users/zsh-completions.git
 
+- 常见问题参考
+
+机器没有联网出现 ```gitstatus failed to initialize```
+手动下载放到```~/Configs/zsh/themes/powerlevel10k/gitstatus/usrbin```
+
 ## Vim
 vim本着按照编辑器需求配置完成一下功能：
 1. 基于fzf模糊搜索文件和buffer

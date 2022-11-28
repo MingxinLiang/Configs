@@ -14,8 +14,8 @@ alias complete="compctl"
 #alias shopt="setopt"
 
 # get bash set
-source ~/.bashrc
-source ~/.bash_profile
+[[ ! -f ~/.bashrc ]] || source ~/.bashrc
+[[ ! -f ~/.bash_profile ]] || source ~/.bash_profile
 
 # Themes
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
