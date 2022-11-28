@@ -17,8 +17,10 @@ sh zsh/zsh_install.sh
 
 ###### 配置
 ln -s ~/Configs/zsh/zshrc ~/.zshrc
-
+- p10k 主题
 ln -s ~/Configs/zsh/p10k.zsh ~/.p10k.zsh
+- robbyrussell
+cp ~/Configs/zsh/themes/robbyrussell.zsh-theme .oh-my-zsh/themes/robbyrussell.zsh-theme
 
 - 安装语法高亮插件参考:
 
