@@ -42,14 +42,12 @@ vim本着按照编辑器需求配置完成一下功能：
 3. 基于当前文档和buffer进行自动补全（项目较大时基于ctag的补全容易卡顿）
 4. 查看文件树
 ### 安装插件管理器
- curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+1. mkdir -p ~/.vim/autoload/plug.vim
+2. cp ./vim/plug.vim ~/.vim/autoload/
+3. vim PlugInstall
  
 ### 配色
-cd 
-
-cd .vim
-
-mkdir colors
+1. cp ./vim/colors ~/.vim/
 
 之后建立配色文件，参考：https://github.com/tomasr/molokai
 
@@ -134,3 +132,13 @@ Instant: checked
 sudo defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 code
 
+## WSL2
+### 代理
+1. 获取宿主机IP(ipconfig), 测试可以联通
+2. 在主机的服务中允许局域网中的连接
+3. 配置代理
+```
+win_ip=`ipconfig.exe | grep IPv4 | head -n 1 | cut -d":" -f 2 | awk '$1=$1'`
+win_x_port="8001"
+export all_proxy="socks5://${win_ip}:${win_x_port}"
+```
