@@ -8,6 +8,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# 关闭自动更新，手动更新命令 ```omz update```
+DISABLE_AUTO_UPDATE="true"
+
 # export path
 # alias
 alias complete="compctl"

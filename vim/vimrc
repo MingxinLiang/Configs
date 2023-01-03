@@ -126,35 +126,7 @@ vnoremap $q <esc>`>a'<esc>`<i'<esc>
 vnoremap $e <esc>`>a"<esc>`<i"<esc>
 " 括号自动生成
 
-" F5 自动格式化 依赖astyle
-" map <F5> :call FormartSrc()<CR><CR>
-" 
-" "定义FormartSrc()
-" func FormartSrc()
-"     exec "w"
-"     if &filetype == 'c'
-"         exec "!astyle --style=ansi -a --suffix=none %"
-"     elseif &filetype == 'cpp' || &filetype == 'hpp'
-"         exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
-"     elseif &filetype == 'perl'
-"         exec "!astyle --style=gnu --suffix=none %"
-"     elseif &filetype == 'py'||&filetype == 'python'
-"         exec "r !autopep8 -i --aggressive %"
-"     elseif &filetype == 'java'
-"         exec "!astyle --style=java --suffix=none %"
-"     elseif &filetype == 'jsp'
-"         exec "!astyle --style=gnu --suffix=none %"
-"     elseif &filetype == 'xml'
-"         exec "!astyle --style=gnu --suffix=none %"
-"     else
-"         exec "normal gg=G"
-"         return
-"     endif
-"     exec "e! %"
-" endfunc
-"结束定义FormartSrc
-"
-"F6 自动运行
+"F5 运行
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
@@ -182,8 +154,8 @@ func! CompileRunGcc()
     endif
 endfunc
 
-" F7 winmanager 开关
-"
+" Todo:代码格式
+
 " 按下F8重新生成tag文件，并更新taglist  
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>:TlistUpdate<CR>  
 imap <F8> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>:TlistUpdate<CR>  
@@ -194,6 +166,7 @@ nmap <Leader>tn :tnext<CR>
 " 反向遍历同名标签
 nmap <Leader>tp :tprevious<CR>
 " 
+" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " 插件使用vim-plus安装
 call plug#begin('~/.vim/plugged')
 " 配色
@@ -217,6 +190,19 @@ Plug 'tpope/vim-surround'
 " 高亮括号
 Plug 'kien/rainbow_parentheses.vim'
 
+"下方插件增强
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+let g:Powerline_colorscheme='solarized256'
+set laststatus=2
+
+"" ----窗口管理----
+" F2 打开文件树
+Plug 'scrooloose/nerdtree'
+let NERDTreeWinPos='right'
+let NERDTreeWinSize=30
+map <F2> :NERDTreeToggle<CR>
+
 " taglist
 Plug 'vim-scripts/taglist.vim'
 let Tlist_Ctags_Cmd='ctags'
@@ -226,40 +212,13 @@ let Tlist_Exit_OnlyWindow=1      "如果taglist窗口是最后一个窗口，则
 "let Tlist_Use_Right_Window=1     "在右侧窗口中显示taglist窗口
 let Tlist_Use_Left_Windo =1  "在左侧窗口中显示taglist窗口
 
-" F2 打开文件树
-Plug 'scrooloose/nerdtree'
-let NERDTreeWinPos='right'
-let NERDTreeWinSize=30
-map <F2> :NERDTreeToggle<CR>
-
-"" winmanager
-" Plug 'vim-scripts/winmanager'
-" let g:winManagerWindowLayout='FileExplorer|TagList'
-" let g:winManagerWidth =25
-" nmap <silent> <F7> :WMToggle<cr>
-" let g:AutoOpenWinManager = 1 "开启Vim时自动打开
-
-"下方插件增强
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-let g:Powerline_colorscheme='solarized256'
-set laststatus=2
-
-"" Python 配置
-
-" pythgon的语法高亮 for python.vim syntax highlight
-Plug 'hdima/python-syntax' 
-let python_highlight_all = 1
-
-" C/C++ 配置
-Plug 'octol/vim-cpp-enhanced-highlight'
-
 " Tiger bar
 Plug 'majutsushi/tagbar'
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边
 let tagbar_left=1
 " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
 nnoremap <F3> :TagbarToggle<CR>
+
 " 设置标签子窗口的宽度
 let tagbar_width=32
 " tagbar 子窗口中不显示冗余帮助信息
@@ -298,6 +257,77 @@ let g:tagbar_type_cpp = {
             \ 'union'     : 'u'
             \ }
             \ }
+nnoremap <F6> :Buffers<CR>
+
+
+"" -----搜索----------
+" fzf 搜索文件
+" fzf 文件搜索，需要安装fzf比ctrlp更好使用
+" Go语言编写，速度更快
+nnoremap <F4> :FZF<CR>
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" 扩展搜索 LeaderF
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+let g:Lf_WindowPosition = 'popup'
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+"" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+"Plug 'ludovicchabant/vim-gutentags'
+"let g:gutentags_add_default_project_roots = 0
+"let g:gutentags_project_root = ['.root']
+"let g:gutentags_ctags_tagfile = '.tags'
+"" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录 "
+"let s:vim_tags = expand('~/.LfCache/ctags')
+"let g:gutentags_cache_dir = s:vim_tags
+"
+"if isdirectory("kernel/") && isdirectory("mm/")
+"    let g:gutentags_file_list_command = 'find arch/arm* arch/riscv block crypto drivers fs include init ipc kernel lib mm net security sound virt'
+"endif
+"
+"" for rt-thread project
+"if isdirectory("libcpu/") && isdirectory("bsp/")
+"    let g:gutentags_file_list_command = 'find include libcpu src components examples bsp/rockchip* '
+"endif
+"
+"" 检测 ~/.cache/tags 不存在就新建 "
+"if !isdirectory(s:vim_tags)
+"    silent! call mkdir(s:vim_tags, 'p')
+"endif
+"
+"" 配置 ctags 的参数 "
+"let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+"let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+"let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 " ctrlp 搜索字符串
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -318,14 +348,6 @@ let g:tagbar_type_cpp = {
 "             \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 "             \ }
 
-" fzf 搜索文件
-" fzf 文件搜索，需要安装fzf比ctrlp更好使用
-" Go语言编写，速度更快
-nnoremap <F4> :FZF<CR>
-nnoremap <F6> :Buffers<CR>
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 "" 代码块补全
 
 " 超级tab
@@ -333,6 +355,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'ervandew/supertab'
 set cpt=.,b,w,i 
 
+"" Python 配置
+
+" pythgon的语法高亮 for python.vim syntax highlight
+Plug 'hdima/python-syntax' 
+let python_highlight_all = 1
+
+" C/C++ 配置
+Plug 'octol/vim-cpp-enhanced-highlight'
+
 call plug#end()
-
-
+" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
