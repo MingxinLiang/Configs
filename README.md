@@ -9,6 +9,7 @@ ln -s `pwd` ./~
 
 ##### 安装 zsh
 ubuntu: sudo apt-get install zsh
+
 centos: sudo yum install -y zsh
 
 ##### 安装 oh-my-zsh
@@ -18,7 +19,7 @@ sh zsh/zsh_install.sh
 ###### 配置
 ln -s ~/Configs/zsh/zshrc ~/.zshrc
 - p10k 主题
-ln -s ~/Configs/zsh/p10k.zsh ~/.p10k.zsh
+ln -s ~/Configs/zsh/themes/p10k.zsh ~/.p10k.zsh
 - robbyrussell
 cp ~/Configs/zsh/themes/robbyrussell.zsh-theme .oh-my-zsh/themes/robbyrussell.zsh-theme
 
@@ -30,20 +31,23 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 git clone https://github.com/zsh-users/zsh-completions.git
 
+- zsh 设为默认
+chsh -s /usr/bin/zsh
 - 常见问题参考
 
 机器没有联网出现 ```gitstatus failed to initialize```
 手动下载放到```~/Configs/zsh/themes/powerlevel10k/gitstatus/usrbin```
 
 ## Vim
+
 vim本着按照编辑器需求配置完成一下功能：
 1. 基于fzf模糊搜索文件和buffer
 2. 基于Ctags做代码常规转跳
 3. 基于当前文档和buffer进行自动补全（项目较大时基于ctag的补全容易卡顿）
 4. 查看文件树
 ### 安装插件管理器
-1. mkdir -p ~/.vim/autoload/plug.vim
-2. cp ./vim/plug.vim ~/.vim/autoload/
+1. mkdir -p ~/.vim/autoload/
+2. cp Configs/vim/plug.vim ~/.vim/autoload/
 3. vim PlugInstall
  
 ### 配色

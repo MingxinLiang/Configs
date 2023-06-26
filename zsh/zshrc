@@ -67,8 +67,6 @@ HIST_STAMPS="mm/dd/yyyy"
 #git brew node npm zsh-autosuggestions zsh-syntax-highlighting
 #)
 
-source $ZSH/oh-my-zsh.sh
-
 #You may need to manually set your language environment
 #export LC_ALL=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
