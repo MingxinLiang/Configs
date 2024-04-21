@@ -165,7 +165,7 @@ function hist { convhistory $HISTFILE }
 #cmd #这是注释
 setopt INTERACTIVE_COMMENTS
 
-#启用自动 cd，输入目录名回车进入目录
+#启用自动 cd,输入目录名回车进入目录
 #稍微有点混乱，不如 cd 补全实用
 setopt AUTO_CD
 
@@ -196,6 +196,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 #修正大小写
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
+autoload -Uz compinit
+compinit
 #kill 命令补全
 compdef pkill=kill
 compdef pkill=killall
@@ -295,11 +297,12 @@ source ~/Configs/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # active conda
 #conda activate 
+#
+#alias
+alias ll="ls -hl --color=auto"
 
 # login servers
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
-alias irelay="ssh liangmingxin@relay.baidu-int.com"
-alias iserver_bj="ssh lighthouse@82.157.54.109"
-alias iserver_xjp="ssh lighthouse@43.156.54.134"
+alias go_dev="ssh -i ~/WorkPlace/data/ape_ai.pem centos@52.81.79.102"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
